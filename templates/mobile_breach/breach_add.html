@@ -1,0 +1,33 @@
+<!-- add_breach.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Report a Mobile Device Breach</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label for="device_id">Device ID:</label>
+      <input type="text" id="device_id" name="device_id" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+    </div>
+    <div>
+      <label for="breach_type">Breach Type:</label>
+      <select id="breach_type" name="breach_type" required>
+        <option value="">--Please choose an option--</option>
+        <option value="Phishing">Phishing</option>
+        <option value="Spyware">Spyware</option>
+        <option value="Trojan">Trojan</option>
+        <option value="Malicious Site">Malicious Site</option>
+        <option value="Hijack">Hijack</option>
+      </select>
+    </div>
+    <div>
+      <label for="prevention_steps">Prevention Steps:</label>
+      <textarea id="prevention_steps" name="prevention_steps" required></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}
